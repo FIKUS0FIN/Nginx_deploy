@@ -25,3 +25,5 @@
 
  https://github.com/FIKUS0FIN/Nginx_deploy
  "git repo"
+
+## Note jenkins:9090 google
