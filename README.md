@@ -2,10 +2,12 @@
 
 
   1 - create 3 jenkins jobs - "REFER 1"
+
     1.1 -  build new docker image and push it to DockerHub
       1.1.1 - use WebHook to triger new job
 
   2 - rebuild container with new data and config
+
       2.1.1 - if git Webhook is trigered - "REFER 2"
       2.1.2 - create new ECS2 instance and deploy container there
       2.1.3 - kill previous instance    
