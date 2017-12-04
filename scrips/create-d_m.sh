@@ -34,9 +34,16 @@ function put_info
   #statements
 }
 
+function deploy_container()
+{
+  container=$1
+  sudo docker-machine ssh ${NAME}-${BUILD_ID} sudo docker run -d -p ${PORT}:80 $container
+  #statements
+}
 
 #body===========================================================================
 
 create_ec2 ${NAME}
 #kill_aws $previous_mashine_id $previous_mashine_name
 put_info
+deploy_container ${deploy_container}
