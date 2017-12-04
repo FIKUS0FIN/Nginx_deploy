@@ -12,8 +12,8 @@ function create_ec2()
   PORT=80
   REGION="eu-central-1"
   #=============================================================================
-  sudo docker-machine create --driver amazonec2 --amazonec2-open-port $PORT \
-  --amazonec2-region $REGION $NAME
+  sudo docker-machine create --driver amazonec2 --amazonec2-open-port ${PORT} \
+  --amazonec2-region ${REGION} ${NAME}-${BUILD_ID}
 }
 
 function kill_aws()
@@ -30,13 +30,13 @@ function put_info
 {
   sudo docker-machine inspect imp-test | grep InstanceId \
   | awk '{print $2}' | awk -F "\"" '{print $2}' > ../aws_id.conf
-  echo "$jenkins_name" > ../aws_d-m.conf
+  echo "${NAME}-${BUILD_ID}" > ../aws_d-m.conf
   #statements
 }
 
 
 #body===========================================================================
 
-create_ec2 $jenkins_name
+create_ec2 ${NAME}
 #kill_aws $previous_mashine_id $previous_mashine_name
 put_info
