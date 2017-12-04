@@ -6,4 +6,3 @@ IMG_ID=$(cat raw.log | grep "Successfully built" | awk '{print $3}')
 
 sudo docker tag $IMG_ID boodman/lua_nginx
 sudo docker push boodman/lua_nginx
-#comment
