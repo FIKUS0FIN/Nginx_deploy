@@ -15,8 +15,8 @@
 body {
 	padding: 0px;
 	margin: 0px;
-	background-image: url(../images/background.png);
-	background-size: 100%;
+	background-image: url(../images/background.svg);
+	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 0px 70px 0 70px;
 }
@@ -56,11 +56,14 @@ box-shadow: 0px 0px 31px 11px rgba(0,0,0,0.75);
 header {
 	width: 100%;
 	height: 450px;
-	background: url(../images/slice.svg) no-repeat;
-	background-size:  100%;
+	background-image: url(../images/slice.svg);
+	background-size:  cover;
+	background-repeat: no-repeat;
+	background-position: center center;
 	/*background-size: 100% 100%;*/
 	text-align: center;
 }
+
 
 header span {
 	font-size: 12vw;
@@ -74,6 +77,7 @@ header span {
 .grid-container {
 	width: 100%;
 	height: 400px;
+	position: relative;
 }
 
 .rect {
@@ -235,4 +239,93 @@ footer p {
 .rights {
 	font-size: 1vw;
 	margin-top: 10px;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 500px) {
+  	header {
+		height: 150px;
+	}
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 501px) and (max-width: 960px) {
+  header {
+		height: 250px;
+	}
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 1400px) {
+  header {
+		height: 700px;
+	}
+
+	.rect {
+		height: 500px;
+	}
+
+	#grid1 {
+		height: 500px;
+	}
+
+	#grid2 {
+		height: 550px;
+	}
+
+	#item2 img {
+		margin-top: -170px;
+		width: 58%;
+	}
+
+	#item3 img {
+		height: 550px;
+	}
+
+	#item4 {
+		height: 550px;
+	}
+
+	#lectures {
+	height: 460px;
+	}
+
+	#lectures p {
+		margin-top: 40px;
+		margin-left: 150px;
+	}
+
+	#lectures img {
+		margin: 90px 150px 0 0;
+	}
+
+	footer {
+		margin-top: 460px;
+		width: 100%;
+		height: 460px;
+		background-color: #2c3e50;
+		position: relative;
+	}
+
+	footer::after {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 100%;
+		top: -460px;
+		left: 0;
+		background-color: #2c3e50;
+		transform-origin: top left;
+		transform: skewY(15deg);
+		z-index: -1;
+	}
+
+	footer img {
+		margin-top: -130px;
+	}
+
+	.img-frame {
+		width: 300px;
+		height: 300px;
+	}
 }
