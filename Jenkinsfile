@@ -7,11 +7,11 @@ node {
 
     stage('Build image') {
 
-        sh 'bash sudo scrips/build_container.sh'
+        sh 'scrips/build_container.sh'
     }
 
     stage('Test image') {
 
-        sh 'bash sudo scrips/create-d_m.sh'
+        sh 'scrips/create-d_m.sh'
     }
 }
