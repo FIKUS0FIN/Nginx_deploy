@@ -4,7 +4,7 @@ node {
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
-        git branch: 'test_git_hook', credentialsId: 'f0cb8f80-44de-4c55-9f7b-b82b7efbd5d9', url: 'git@github.com:FIKUS0FIN/Nginx_deploy.git'
+        checkout scm
     }
 
     stage('Build image') {
