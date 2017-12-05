@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su
+
 ##global vars
 #previous_mashine_id=$(cat ../aws_id.conf)
 #previous_mashine_name=$(cat ../aws_d-m.conf)
