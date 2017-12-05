@@ -10,8 +10,8 @@ node {
         sh 'scrips/build_container.sh'
     }
 
-    stage('Test image') {
+    stage('triger job deploy_container ') {
 
-        sh 'scrips/create-d_m.sh'
+        build job: 'setup-new-machine', parameters: [text(name: 'REGION', value: 'eu-central-1'), text(name: 'NAME', value: 'Jenkins-auto'), text(name: 'PORT', value: '80'), text(name: 'deploy_container', value: 'boodman/lua_nginx')]
     }
 }
