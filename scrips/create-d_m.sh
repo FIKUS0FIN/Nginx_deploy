@@ -35,7 +35,7 @@ function put_info
 function deploy_container()
 {
   container=$1
-  sudo docker-machine ssh ${NAME}-${BUILD_ID} sudo docker run -d -p ${PORT}:80 $container
+  sudo docker-machine ssh ${NAME}-${BUILD_ID} sudo docker run -d -p ${PORT}:80 --name lua_nginx $container
   #statements
 }
 
