@@ -1,5 +1,6 @@
-# Based on manual compile instructions at http://wiki.nginx.org/HttpLuaModule#Installation
 FROM ubuntu:14.04
+
+MAINTAINER Dmytro Symonenko "Dmytro_Symonenko@epam.com"
 
 ENV VER_NGINX_DEVEL_KIT=0.2.19
 ENV VER_LUA_NGINX_MODULE=0.9.16
