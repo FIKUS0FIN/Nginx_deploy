@@ -1,6 +1,5 @@
 node {
     stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
@@ -12,11 +11,14 @@ node {
     sudo docker tag $IMG_ID boodman/lua_nginx
     sudo docker push boodman/lua_nginx
     '''
-    
     }
 
-    stage('triger job deploy_container ') {
+    stage('deploy_container with new config and data ') {
 
-        build job: 'setup-new-machine', parameters: [text(name: 'REGION', value: 'eu-central-1'), text(name: 'NAME', value: 'Jenkins-auto'), text(name: 'PORT', value: '80'), text(name: 'deploy_container', value: 'boodman/lua_nginx')]
+    sh '''p_m_n=$(cat ../aws_d-m.conf)
+    sudo docker-machine ssh $p_m_n sudo docker stop lua_nginx
+    exit 0
+    sudo docker-machine ssh $p_m_n sudo docker run -d -p 80:80 --name lua_nginx boodman/lua_nginx
+    '''
     }
 }
