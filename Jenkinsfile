@@ -6,11 +6,11 @@ node {
 
     stage('Build image') {
 
-    sh '''sudo docker build -t lua_nginx docker_folder > raw.log
-    IMG_ID=$(cat raw.log | grep "Successfully built" | awk \'{print $3}\')
-    sudo docker tag $IMG_ID boodman/lua_nginx
-    sudo docker push boodman/lua_nginx
-    '''
+    def customImage = docker.build("lua_nginx", "-f docker_folder/Dockerfile .")
+    customImage.push()
+
+    customImage.push('latest')
+
     }
 
     stage('deploy_container with new config and data ') {
